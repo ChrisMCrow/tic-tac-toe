@@ -26,8 +26,8 @@ _None._
 |-------|-------|------|------|
 |1|The program looks like a tic tac toe board |Open|Page looks like a board|
 |2|The program returns X when user clicks the board|Press Box |X|
-|3|The program does not let user select an occupied space|Click occupied box|Nothing
-|4|The program alternates between X and O|Two clicks|X then O
+|3|The program alternates between X and O|Two clicks|X then O
+|4|The program does not let user select an occupied space|Click occupied box|Nothing
 |5|The program checks for three letters in a row|3 letters|Winner|
 
 
