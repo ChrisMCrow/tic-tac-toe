@@ -1,4 +1,7 @@
 .col-xs-4 {
   border: 2px solid black;
   height: 25vh;
+  float: left;
+  text-align: center;
+  font-size: 15vh
 }
