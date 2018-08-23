@@ -1,6 +1,19 @@
 var playerX = {mark: "X", turn: false, spaces: []};
 var playerO = {mark: "O", turn: true, spaces: []};
-var boxID = ""
+
+var condition1 = ["b1", "b2", "b3"]
+var winConditions = [
+  ["b1", "b2", "b3"]
+  ["b1", "b4", "b7"]
+]
+// condition2 =
+// condition3 = ["b1", "b2", "b3"]
+// condition1 = ["b1", "b2", "b3"]
+// condition1 = ["b1", "b2", "b3"]
+// condition1 = ["b1", "b2", "b3"]
+// condition1 = ["b1", "b2", "b3"]
+// condition1 = ["b1", "b2", "b3"]
+
 
 function mark() {
   if (playerX.turn === true) {
@@ -14,36 +27,28 @@ function mark() {
   }
 }
 
-function checkForWin(spaceArray) {
-  console.log(spaceArray)
-  if (spaceArray.includes("b1") && spaceArray.includes("b2") && spaceArray.includes("b3")) {
-    alert("You Win!");
-  } else if (spaceArray.includes("b1") && spaceArray.includes("b4") && spaceArray.includes("b7")) {
-      alert("You Win!");
-  } else if (spaceArray.includes("b1") && spaceArray.includes("b5") && spaceArray.includes("b9")) {
-      alert("You Win!");
-  } else if (spaceArray.includes("b2") && spaceArray.includes("b5") && spaceArray.includes("b8")) {
-      alert("You Win!");
-  } else if (spaceArray.includes("b3") && spaceArray.includes("b5") && spaceArray.includes("b7")) {
-      alert("You Win!");
-  } else if (spaceArray.includes("b3") && spaceArray.includes("b6") && spaceArray.includes("b9")) {
-      alert("You Win!");
-  } else if (spaceArray.includes("b4") && spaceArray.includes("b5") && spaceArray.includes("b6")) {
-      alert("You Win!");
-  } else if (spaceArray.includes("b7") && spaceArray.includes("b8") && spaceArray.includes("b9")) {
-      alert("You Win!");
-  }
+function checkForWin(conditions, playerSpaces) {
+  console.log(conditions);
+  console.log(playerSpaces);
+  // conditions.forEach(function(condition) {
+    for(var i = 0; i < conditions.length; i++) {
+      if($.inArray(conditions[i], playerSpaces) == -1)
+      return false;
+    }
+    return true;
+  // });
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
   $(".col-xs-4").on("click", function() {
     boxID = $(this).attr("id");
     $(this).text(mark());
     $(this).off("click");
-    checkForWin(playerX.spaces);
-    checkForWin(playerO.spaces);
+    // checkForWin(condition1, playerX.spaces);
+    if (checkForWin(condition1, playerO.spaces)) {alert("O wins!")}
+    if (checkForWin(condition1, playerX.spaces)) {alert("X wins!")}
   });
   $("button").click(function() {
     document.location.reload();
-  })
+  });
 });
